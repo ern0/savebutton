@@ -1,4 +1,4 @@
 #!/bin/bash
 
 clear
-platformio run -t upload
+sudo platformio run -t upload

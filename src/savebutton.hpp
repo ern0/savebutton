@@ -2,8 +2,8 @@
 
 // ---- platform-specific functions -------------------------------
 
-void keyboardSetup();
-void keyboardSendSave();
+extern void keyboardSetup();
+extern void keyboardSendSave();
 
 
 // ---- platform-specific constants -------------------------------

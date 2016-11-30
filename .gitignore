@@ -1,2 +1,4 @@
 .pioenvs
 .piolibdeps
+.travis.yml
+.DS_Store

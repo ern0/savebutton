@@ -1,4 +1,4 @@
 #!/bin/bash
 
 clear
-sudo platformio run -t upload
+platformio run -e digispark -t upload

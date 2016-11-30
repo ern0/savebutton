@@ -1,47 +1,21 @@
-#include <Arduino.h>
-#include <Keyboard.h>
-
-const int  buttonPin = 0;    // the pin that the pushbutton is attached to
-const int ledPin = 13;       // the pin that the LED is attached to
-const int osPin = 1;
-char ctrlKey = KEY_LEFT_CTRL;
+#include "DigiKeyboard.h"
 
 void setup() {
-
-	pinMode(ledPin,OUTPUT);
-	pinMode(buttonPin,INPUT);
-	pinMode(osPin,INPUT);
-
-	digitalWrite(ledPin, HIGH);
-
-	if(digitalRead(osPin) == HIGH){
-		char ctrlKey = KEY_LEFT_GUI;
-	}
-
-	Keyboard.begin();
-
-	for(int i=0;i<5;i++){
-		digitalWrite(ledPin, HIGH);
-		delay(200);
-		digitalWrite(ledPin, LOW);
-		delay(200);
-	}
-
-} // setup()
+  // don't need to set anything up to use DigiKeyboard
+}
 
 
 void loop() {
-
-	while (digitalRead(buttonPin) == HIGH) {
-		delay(500);
-	}
-	Keyboard.press('s');
-	Keyboard.press(ctrlKey);
-
-	digitalWrite(13,HIGH);
-	delay(100);
-	Keyboard.releaseAll();
-	delay(1500);
-	digitalWrite(13,LOW);
-	delay(100);
-} // loop()
+  // this is generally not necessary but with some older systems it seems to
+  // prevent missing the first character after a delay:
+  DigiKeyboard.sendKeyStroke(0);
+  
+  // Type out this string letter by letter on the computer (assumes US-style
+  // keyboard)
+  DigiKeyboard.println("Hello Digispark!");
+  
+  // It's better to use DigiKeyboard.delay() over the regular Arduino delay()
+  // if doing keyboard stuff because it keeps talking to the computer to make
+  // sure the computer knows the keyboard is alive and connected
+  DigiKeyboard.delay(5000);
+}

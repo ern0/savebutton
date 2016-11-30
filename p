@@ -2,5 +2,5 @@
 
 clear
 #platformio run -e digispark
-#platformio run -e leonardo -t upload
-platformio run
+platformio run -e leonardo -t upload
+#platformio run

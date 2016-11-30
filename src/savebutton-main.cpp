@@ -12,7 +12,7 @@ char modkey = MODKEY_CONTROL;
 
 
 void setup() {
-	keyboardSetup();
+	keyboardSetup();	
 }
 
 void loop() {

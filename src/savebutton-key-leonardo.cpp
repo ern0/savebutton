@@ -1,23 +1,24 @@
-
 #include <Keyboard.h>
+#include "savebutton.hpp"
 
 
 void keyboardSetup() {
 	Keyboard.begin();
-}
+} // keyboardSetup()
 
 
 void keyboardSendSave() {
 
-	Keyboard.press('l');
-	Keyboard.releaseAll();
-  delay(100);
+	if (modkey == MODKEY_CONTROL) {
+		Keyboard.press(KEY_LEFT_CTRL);
+	} else {
+		Keyboard.press(KEY_LEFT_GUI);
+	}
+	Keyboard.press('s');
 
-	Keyboard.press('e');
-	Keyboard.releaseAll();
-  delay(100);
+	delay(100);
 
-	Keyboard.press('o');
 	Keyboard.releaseAll();
 
-}
+} // keyboardSendSave()
+

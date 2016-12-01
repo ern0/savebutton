@@ -13,7 +13,7 @@ void keyboardSendSave() {
 		Keyboard.press(KEY_LEFT_CTRL);
 	} else {
 		Keyboard.press(KEY_LEFT_GUI);
-		//Keyboard.press(KEY_LEFT_ALT); - save all
+		//Keyboard.press(KEY_LEFT_ALT); - save all 
 	}
 
 	Keyboard.press('s');

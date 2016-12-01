@@ -1,29 +1,23 @@
 #include <Arduino.h>
 
+# ifndef _savebutton_hpp
+# define _savebutton_hpp
+
+// ---- platform-specific constants -------------------------------
+
+# if ENV == 1
+# include "savebutton-pinout-leonardo.hpp"
+# endif
+
+# if ENV == 2
+# include "savebutton-pinout-digispark.hpp"
+# endif
+
+
 // ---- platform-specific functions -------------------------------
 
 extern void keyboardSetup();
 extern void keyboardSendSave();
-
-
-// ---- platform-specific constants -------------------------------
-
-# if ENV == digispark
-	# define PIN_BUTTON (0)
-	# define PIN_OS (1)
-	# define PINSTATE_OS_CLOSE (HIGH)
-	# define PIN_LED_ONBOARD (13)
-	# define PIN_LED_BUTTON (-1)
-# endif
-
-# if ENV == leonardo
-	# define PIN_BUTTON (1)
-	# define PINSTATE_BUTTON_CLOSE (HIGH)
-	# define PIN_OS (5)
-	# define PINSTATE_OS_CLOSE (HIGH)
-	# define PIN_LED_ONBOARD (13)
-	# define PIN_LED_BUTTON (2)
-# endif
 
 
 // ---- common constants ------------------------------------------
@@ -32,6 +26,8 @@ extern void keyboardSendSave();
 # define MODKEY_COMMAND 2
 
 
-// ---- global variables ------------------------------------------
+// ---- common function -------------------------------------------
 
-extern char modkey;
+extern char getModKey();
+
+# endif

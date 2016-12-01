@@ -9,7 +9,7 @@ void keyboardSetup() {
 
 void keyboardSendSave() {
 
-	if (modkey == MODKEY_CONTROL) {
+	if (getModKey() == MODKEY_CONTROL) {
 		Keyboard.press(KEY_LEFT_CTRL);
 	} else {
 		Keyboard.press(KEY_LEFT_GUI);

@@ -1,7 +1,15 @@
 #include "savebutton.hpp"
 
 
-char modkey = MODKEY_CONTROL;
+char getModKey() {
+
+	if (digitalRead(PIN_OS) == PINSTATE_OS_ACTIVE) {
+		return MODKEY_COMMAND;
+	} else {
+		return MODKEY_CONTROL;
+	}
+
+} // getModKey()
 
 
 void setup() {
@@ -10,10 +18,6 @@ void setup() {
 	if (PIN_LED_BUTTON > -1) pinMode(PIN_LED_BUTTON,OUTPUT);
 	pinMode(PIN_BUTTON,INPUT);
 	pinMode(PIN_OS,INPUT);
-
-	if (digitalRead(PIN_OS) == PINSTATE_OS_CLOSE) {
-		modkey = MODKEY_COMMAND;
-	}
 
 	// startup lights
 
@@ -36,7 +40,7 @@ void setup() {
 
 void loop() {
 
-	while (digitalRead(PIN_BUTTON) != PINSTATE_BUTTON_CLOSE) {
+	while (digitalRead(PIN_BUTTON) != PINSTATE_BUTTON_ACTIVE) {
 		delay(500);
 	}
 

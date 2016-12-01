@@ -10,9 +10,9 @@ void keyboardSetup() {
 void keyboardSendSave() {
 
 	DigiKeyboard.sendKeyStroke(0);
-  delay(100);
+	delay(100);
 
-	if (modkey == MODKEY_CONTROL) {
+	if (getModKey() == MODKEY_CONTROL) {
 		DigiKeyboard.sendKeyStroke(KEY_S,MOD_CONTROL_LEFT);
 	} else {
 		DigiKeyboard.sendKeyStroke(KEY_S,MOD_GUI_LEFT);

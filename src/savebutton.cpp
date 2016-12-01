@@ -21,11 +21,14 @@ void setup() {
 
 	// startup lights
 
+	digitalWrite(PIN_LED_ONBOARD,LOW);
+	delay(200);
+                 
 	for (int i = 0; i < 5; i++) {
 		digitalWrite(PIN_LED_ONBOARD,HIGH);
-		delay(300);
+		delay(100);
 		digitalWrite(PIN_LED_ONBOARD,LOW);
-		delay(300);
+		delay(100);
 	}
 	if (PIN_LED_BUTTON > -1) {
 		digitalWrite(PIN_LED_BUTTON,HIGH);
@@ -41,13 +44,17 @@ void setup() {
 void loop() {
 
 	while (digitalRead(PIN_BUTTON) != PINSTATE_BUTTON_ACTIVE) {
-		delay(500);
+		delay(50);
 	}
 
 	keyboardSendSave();
 
 	digitalWrite(PIN_LED_BUTTON,HIGH);
-	delay(800);
+	delay(500);
+	digitalWrite(PIN_LED_BUTTON,LOW);
+	delay(100);
+	digitalWrite(PIN_LED_BUTTON,HIGH);
+	delay(200);
 	digitalWrite(PIN_LED_BUTTON,LOW);
 
 } // loop()

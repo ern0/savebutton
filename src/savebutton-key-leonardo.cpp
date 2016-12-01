@@ -13,12 +13,12 @@ void keyboardSendSave() {
 		Keyboard.press(KEY_LEFT_CTRL);
 	} else {
 		Keyboard.press(KEY_LEFT_GUI);
+		//Keyboard.press(KEY_LEFT_ALT); - save all
 	}
-	Keyboard.press('s');
 
+	Keyboard.press('s');
 	delay(100);
 
 	Keyboard.releaseAll();
 
 } // keyboardSendSave()
-

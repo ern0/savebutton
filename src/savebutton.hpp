@@ -6,11 +6,9 @@
 // ---- platform-specific constants -------------------------------
 
 # if ENV == 1
-# include "savebutton-pinout-leonardo.hpp"
-# endif
-
-# if ENV == 2
-# include "savebutton-pinout-digispark.hpp"
+	# include "savebutton-pinout-leonardo.hpp"
+# elif ENV == 2
+	# include "savebutton-pinout-digispark.hpp"
 # endif
 
 
